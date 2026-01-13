@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1439</width>
+    <height>884</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Фон */
+QMainWindow {
+    background-color: #f5f0e1;
+}
+
+/* Список книг  */
+QListWidget {
+    background-color: #fff8e1;
+    border: 2px solid #8d6e63;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #3e2723;
+}
+
+/* Кнопки */
+QPushButton {
+    background-color: #795548;
+    color: #ffebee;
+    border: none;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+QPushButton:hover {
+    background-color: #8d6e63;
+}
+
+QPushButton:pressed {
+    background-color: #5d4037;
+}
+
+/* Панели  */
+QGroupBox {
+    font-weight: bold;
+    border: 2px solid #a1887f;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 10px;
+    background-color: #efebe9;
+}
+
+/* Детали книги */
+#labelDetails {
+    background-color: #fffaf0;
+    border: 1px solid #d7ccc8;
+    border-radius: 5px;
+    padding: 8px;
+    color: #4e342e;
+}
+
+/* Список полок  */
+#listShelves {
+    background-color: #f5e9d9;
+    border: 1px solid #bcaaa4;
+    color: #5d4037;
+}
+/* Книги на полке (listShelves) */
+#listShelves {
+    background-color: #f5e8d0;
+    border: 1px solid #a67c52;
+    color: #5d4037;
+    font-size: 13px;
+}
+
+/* Книги &quot;Хочу прочитать&quot; - голубоватый */
+#listShelves::item[status=&quot;planned&quot;] {
+    background-color: #e3f2fd;
+    border-left: 4px solid #42a5f5;
+    color: #1565c0;
+}
+
+/* Книги &quot;Читаю сейчас&quot; - зеленоватый */
+#listShelves::item[status=&quot;reading&quot;] {
+    background-color: #e8f5e9;
+    border-left: 4px solid #66bb6a;
+    color: #2e7d32;
+}
+
+/* Книги &quot;Прочитано&quot; - фиолетовый */
+#listShelves::item[status=&quot;finished&quot;] {
+    background-color: #f3e5f5;
+    border-left: 4px solid #ab47bc;
+    color: #6a1b9a;
+}
+
+/* Книги &quot;Любимые&quot; - золотой */
+#listShelves::item[favorite=&quot;true&quot;] {
+    background-color: #fffde7;
+    border-left: 4px solid #ffd54f;
+    color: #ff8f00;
+}
+
+/*  книга на полке */
+#listShelves::item:selected {
+    background-color: #d7ccc8;
+    color: #3e2723;
+    font-weight: bold;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QListWidget" name="listBooks">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>0</y>
+      <width>1211</width>
+      <height>341</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddBook">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>171</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавить книгу</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDelete">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>171</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Удалить книгу</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelCount">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>350</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Всего: 0 книг</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddQuote">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>130</y>
+      <width>171</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавить цитату</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnShowQuotes">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>171</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Просмотр цитат</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddToShelf">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>210</y>
+      <width>171</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавить на полку</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelDetails">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>390</y>
+      <width>561</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 11px;</string>
+    </property>
+    <property name="text">
+     <string>📋 ДЕТАЛИ КНИГИ:&lt;br&gt;Выберите книгу для просмотра деталей</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listShelves">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>390</y>
+      <width>561</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>🗂️ ПОЛКИ:</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnEdit">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>171</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Редактировать книгу</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1439</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
